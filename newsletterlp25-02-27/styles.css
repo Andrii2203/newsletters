@@ -1,0 +1,128 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+}
+
+body{
+  max-width: 650px;
+  margin: 0 auto;
+  min-height: 100%;
+}
+a {
+  color: black;
+  font-size: 24px;
+}
+img {
+  display: block;
+  margin: 0;
+  padding: 0;
+  max-width: 100%;
+  height: auto;
+}
+table,
+tr,
+td {
+  margin: 0;
+  padding: 0;
+  border-collapse: collapse;
+  border-color: none;
+}
+.bg-peach {
+  background-color: #FFCCB7;
+
+}
+.bg-pink {
+  background-color: #FFEBE6;
+}
+.container-with-gif tr:nth-child(-n+3) td {
+  padding: 10px;
+  font-size: 56px;
+  background-color: #FFEBE6;
+  text-align: center;
+  line-height: 1;
+}
+.table-with-timer tr:nth-child(-n+3) td {
+  padding: 11px 0 11px 20px;
+  background-color: #FFEBE6;
+  line-height: 1;
+  font-size: 22px;
+}
+.table-with-timer tr:nth-child(n+4) td {
+  padding-top: 10px;
+  background-color: #FD9000;
+  font-size: 36px;
+  text-align: center;
+}
+.table-with-timer tr:nth-child(n+4) img {
+  margin: 0 auto;
+}
+.table-with-timer tr:nth-child(n+4) img {
+  margin: 0 auto;
+}
+.container-with-asortyment tr:nth-child(-n+1) td {
+  font-size: 34px;
+  padding: 50px 0 30px 20px;
+  background-color: inherit;
+}
+
+.container-with-asortyment-img {
+  background-color: inherit;
+}
+.container-with-asortyment-img tr:nth-child(-n+1) td {
+  padding: 35px 0 0 calc((100% - 590px) / 3.5);
+}
+.container-with-asortyment-img tr:nth-child(+n+2) td {
+  padding: 25px 0 0 calc((100% - 590px) / 3.5);
+}
+.container-with-asortyment-img span {
+  font-size: 22px;
+}
+.container-with-asortyment-img img {
+  max-width: 100%;
+  height: auto;
+}
+.container-with-asortyment-img tr:last-child td {
+  padding-bottom: 80px;
+  padding-left: 0;
+  text-align: center;
+}
+.footer-with-baner-first-two {
+  margin: 0 auto;
+}
+.footer-with-baner-first-two span {
+  font-size: 22px;
+  display: block;
+  padding: 15px 0px 35px 0px;
+}
+.footer-with-baner-first-two img {
+  padding-bottom: 20px;
+}
+.footer-with-baner-last-two {
+  max-width: 610px;
+  margin: 0 auto;
+}
+.footer-with-baner-last-two td {
+  padding: 17px 0;
+}
+.footer-with-menu-button {
+  max-width: 610px;
+  margin: 0 auto;
+  border-collapse: separate;
+}
+.footer-with-menu-button span {
+  font-size: 24px;
+  display: block;
+  padding: 10px 0;
+}
+.footer-with-menu-button td {
+  padding-bottom: 20px;
+}
+.footer-with-menu-button tr:nth-child(-n+1) td {
+  padding-top: 15px;
+}
+.footer-with-menu-button tr:nth-last-child(-n+4) td:first-child {
+  padding-right: 20px;
+}

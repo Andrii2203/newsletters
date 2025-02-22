@@ -1,0 +1,329 @@
+/**
+  Нормализация блочной модели
+ */
+ *,
+ ::before,
+ ::after {
+   box-sizing: border-box;
+ }
+ /* ::-webkit-scrollbar {
+    display: none; Приховує смугу прокрутки в Chrome, Edge, Safari
+} */
+ /**
+   Убираем внутренние отступы слева тегам списков,
+   у которых есть атрибут class
+  */
+ :where(ul, ol):where([class]) {
+   padding-left: 0;
+ }
+ 
+ /**
+   Убираем внешние отступы body и двум другим тегам,
+   у которых есть атрибут class
+  */
+ body,
+ :where(blockquote, figure):where([class]) {
+   margin: 0;
+ }
+ 
+ /**
+   Убираем внешние отступы вертикали нужным тегам,
+   у которых есть атрибут class
+  */
+ :where(
+   h1,
+   h2,
+   h3,
+   h4,
+   h5,
+   h6,
+   p,
+   ul,
+   ol,
+   dl
+ ):where([class]) {
+   margin-block: 0;
+ }
+ 
+ :where(dd[class]) {
+   margin-left: 0;
+ }
+ 
+ :where(fieldset[class]) {
+   margin-left: 0;
+   padding: 0;
+   border: none;
+ }
+ 
+ /**
+   Убираем стандартный маркер маркированному списку,
+   у которого есть атрибут class
+  */
+ :where(ul[class]) {
+   list-style: none;
+ }
+ 
+ :where(address[class]) {
+   font-style: normal;
+ }
+ 
+ /**
+   Обнуляем вертикальные внешние отступы параграфа,
+   объявляем локальную переменную для внешнего отступа вниз,
+   чтобы избежать взаимодействие с более сложным селектором
+  */
+ p {
+   --paragraphMarginBottom: 24px;
+ 
+   margin-block: 0;
+ }
+ 
+ /**
+   Внешний отступ вниз для параграфа без атрибута class,
+   который расположен не последним среди своих соседних элементов
+  */
+ p:where(:not([class]):not(:last-child)) {
+   margin-bottom: var(--paragraphMarginBottom);
+ }
+ 
+ 
+ /**
+   Упрощаем работу с изображениями и видео
+  */
+ img,
+ video {
+   display: block;
+   max-width: 100%;
+   height: auto;
+ }
+ 
+ /**
+   Наследуем свойства шрифт для полей ввода
+  */
+ input,
+ textarea,
+ select,
+ button {
+   font: inherit;
+ }
+ 
+ html {
+   /**
+     Пригодится в большинстве ситуаций
+     (когда, например, нужно будет "прижать" футер к низу сайта)
+    */
+   height: 100%;
+   /**
+     Убираем скачок интерфейса по горизонтали
+     при появлении / исчезновении скроллбара
+    */
+   /* scrollbar-gutter: none; */
+ }
+ 
+ /**
+   Плавный скролл
+  */
+ html,
+ :has(:target) {
+   scroll-behavior: smooth;
+ }
+ 
+ body {
+   /**
+     Пригодится в большинстве ситуаций
+     (когда, например, нужно будет "прижать" футер к низу сайта)
+    */
+   min-height: 100%;
+   /**
+     Унифицированный интерлиньяж
+    */
+   line-height: 1.5;
+   overflow: overlay;
+ }
+ 
+ /**
+   Нормализация высоты элемента ссылки при его инспектировании в DevTools
+  */
+ a:where([class]) {
+   display: inline-flex;
+ }
+ 
+ /**
+   Курсор-рука при наведении на элемент
+  */
+ button,
+ label {
+   cursor: pointer;
+ }
+ 
+ /**
+   Приводим к единому цвету svg-элементы
+   (за исключением тех, у которых уже указан
+   атрибут fill со значением 'none' или начинается с 'url')
+  */
+ :where([fill]:not(
+   [fill="none"],
+   [fill^="url"]
+ )) {
+   fill: currentColor;
+ }
+ 
+ /**
+   Приводим к единому цвету svg-элементы
+   (за исключением тех, у которых уже указан
+   атрибут stroke со значением 'none')
+  */
+ :where([stroke]:not(
+   [stroke="none"],
+   [stroke^="url"]
+ )) {
+   stroke: currentColor;
+ }
+ 
+ /**
+   Чиним баг задержки смены цвета при взаимодействии с svg-элементами
+  */
+ svg * {
+   transition-property: fill, stroke;
+ }
+ 
+ /**
+   Приведение рамок таблиц в классический 'collapse' вид
+  */
+ :where(table) {
+   border-collapse: collapse;
+   border-color: none;
+ }
+ 
+ /**
+   Удаляем все анимации и переходы для людей,
+   которые предпочитают их не использовать
+  */
+ @media (prefers-reduced-motion: reduce) {
+   *,
+   ::before,
+   ::after {
+     animation-duration: 0.01ms !important;
+     animation-iteration-count: 1 !important;
+     transition-duration: 0.01ms !important;
+     scroll-behavior: auto !important;
+   }
+ }
+body {
+  max-width: 650px;
+  margin: 0 auto;
+  /* padding: 0; */
+  /* text-align: center; */
+}
+img {
+  display: block;
+  margin: 0 auto;
+  padding: 0;
+}
+table, tbody, tr, td {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  text-align: center;
+  background-color: inherit;
+}
+.container-with-timer  {
+  display: block;
+  font-size: 24px;
+  line-height: 1;
+}
+.bg-bordo-color-white:nth-child(1),
+.bg-bordo-color-white:nth-child(2),
+.bg-bordo-color-white:nth-child(3),
+.bg-bordo-color-white:nth-child(4),
+.bg-bordo-color-white:nth-child(5),
+.bg-bordo-color-white:nth-child(6) {
+  background-color: #750000;
+  color: white;
+}
+.center {
+  text-align: center;
+  width: 100%;
+
+}
+
+.center a {
+  font-size: 24px;
+  color: inherit;
+}
+
+.header-container-with-timer p {
+  background-color: #FFEBE6;
+  font-size: 20px;
+  padding: 25px;
+  text-align: start;
+  color: black;
+}
+
+.body-container-with-timer td {
+  padding-top: 5px;
+}
+.body-container-with-timer a {
+  color: white;
+}
+
+.container-with-product  {
+  background-color: #FFEBE6;
+}
+.container-with-product p {
+  font-size: 21px;
+  font-weight: 700;
+}
+
+.conatiner-with-sofas {
+  background-color: inherit;
+  border-collapse: separate;
+  margin: 0px auto;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.conatiner-with-sofas tr:nth-child(2) td, 
+.conatiner-with-sofas tr:nth-child(5) td {
+  text-align: left;  
+  padding-top: 15px;
+} 
+.conatiner-with-sofas tr:nth-child(3) td, 
+.conatiner-with-sofas tr:nth-child(6) td {
+  text-align: left;  
+  padding-bottom: 15px;
+} 
+.conatiner-with-sofas span {
+  padding-left: 15px;
+}
+.conatiner-with-sofas:nth-last-child(1) {
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+.footer-container {
+  margin: 0 auto;
+  max-width: 610px;
+}
+.footer-container tr:nth-of-type(n+2) td {
+  padding-top: 18px;
+}
+.footer-container span {
+  display: block;
+  font-size: 22px;
+  text-align: left;
+}
+
+.footer-menu-container {
+  margin: 0 auto;
+  max-width: 610px;
+  border-collapse: separate;
+}
+
+.footer-menu-container span {
+  display: block;
+  font-size: 22px;
+  text-align: left;
+}
+.footer-menu-nav-button img {
+  margin: 13px 13px 0px 0px ;
+}
